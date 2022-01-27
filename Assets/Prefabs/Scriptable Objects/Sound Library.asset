@@ -15,3 +15,6 @@ MonoBehaviour:
   Confirm: {fileID: 8300000, guid: 28d628f297bbe9744916820eb105a993, type: 3}
   Back: {fileID: 8300000, guid: ff838f37f7d6df642aa1489aaa6a91b8, type: 3}
   Select: {fileID: 8300000, guid: ce3a740cc08afc147a9c2af7d368c705, type: 3}
+  CoinCollect: {fileID: 8300000, guid: 6a1e0b14c687655488f132f7ec52e880, type: 3}
+  MatchEnd: {fileID: 8300000, guid: 21e3da9de4ee71341bc068055a4516ec, type: 3}
+  StageComplete: {fileID: 8300000, guid: 079168d521db8c543bd30616fb0f7151, type: 3}

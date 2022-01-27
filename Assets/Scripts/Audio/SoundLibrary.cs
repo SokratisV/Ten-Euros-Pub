@@ -8,5 +8,8 @@ namespace Pub
         public AudioClip Confirm;
         public AudioClip Back;
         public AudioClip Select;
+        public AudioClip CoinCollect;
+        public AudioClip MatchEnd;
+        public AudioClip StageComplete;
     }
 }

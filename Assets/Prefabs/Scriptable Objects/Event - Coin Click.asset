@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1809b149ab5c45a69a2b5a8103adac38, type: 3}
-  m_Name: Game Data
+  m_Script: {fileID: 11500000, guid: c1e05692ef134b2bb11f3c52e04739b1, type: 3}
+  m_Name: Event - Coin Click
   m_EditorClassIdentifier: 
-  InitialRoundTimer: 5
-  MaxNumberOfCoins: 5
