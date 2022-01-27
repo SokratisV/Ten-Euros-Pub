@@ -8,6 +8,8 @@ namespace Pub
         [SerializeField] private SceneReference menuScene;
         [SerializeField] private Camera cameraPrefab;
         [SerializeField] private Canvas background;
+        [SerializeField] private AudioSource globalAudioSource;
+        [SerializeField] private AudioEngine audioEngine;
 
         private void Start()
         {
@@ -19,6 +21,9 @@ namespace Pub
         {
             DontDestroyOnLoad(Instantiate(cameraPrefab));
             DontDestroyOnLoad(Instantiate(background));
+            var audioSource = Instantiate(globalAudioSource);
+            DontDestroyOnLoad(audioSource);
+            audioEngine.AudioSource = audioSource;
         }
     }
 }
