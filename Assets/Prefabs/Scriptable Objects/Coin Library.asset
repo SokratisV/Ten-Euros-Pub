@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25759261bfcd46fd940673b92e57fb7a, type: 3}
+  m_Name: Coin Library
+  m_EditorClassIdentifier: 
+  emptyCoin: {fileID: 3381319655527548326, guid: fe13a6265e94c0948b456ea97528111e, type: 3}
+  OneCentCoin: {fileID: 3381319655527548326, guid: 4dffc63f4a43b3742a616882c11c7ce5, type: 3}
+  TwoCentCoin: {fileID: 3381319655527548326, guid: daee942653dab0c4da41a9ef11031a50, type: 3}
+  FiveCentCoin: {fileID: 3381319655527548326, guid: b8271c0782c81f24cab1622baeaecbd8, type: 3}
+  TenCentCoin: {fileID: 3381319655527548326, guid: ec7b67e7729740547a3adf6f68761658, type: 3}
+  TwentyCentCoin: {fileID: 3381319655527548326, guid: 0f049cf938469664ea7d9bfaec9137cc, type: 3}
+  FiftyCentCoin: {fileID: 3381319655527548326, guid: 441b6151f067eb2408da2adac60e3669, type: 3}
+  OneEuroCoin: {fileID: 3381319655527548326, guid: 6c7d24379b372b149a728dbbe53dfbee, type: 3}
+  TwoEuroCoin: {fileID: 3381319655527548326, guid: ac8680bb0a712d14c8ab28f4826adf8a, type: 3}

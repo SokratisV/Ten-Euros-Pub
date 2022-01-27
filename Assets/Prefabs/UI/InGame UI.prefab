@@ -657,7 +657,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1aef30bb4b6496cb0c75fe7061c8102, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beerParent: {fileID: 5933664963181023924}
   coinParent: {fileID: 5933664964143204114}
   roundCounter: {fileID: 5933664964533546793}
   timeLeft: {fileID: 5933664963061267640}
@@ -668,10 +667,10 @@ MonoBehaviour:
     sceneEnabled: 1
   backButton: {fileID: 3764382816894077954}
   gameLoop: {fileID: 5933664964145893657}
-  coinPrefab: {fileID: 2935992103840713525, guid: c831a7e9b8f9c3c4aace01d2c2ba8dc5, type: 3}
   clickEvent: {fileID: 11400000, guid: cea2eae8615db054e910bb7e50ba7256, type: 2}
   audioEngine: {fileID: 11400000, guid: 79d3032a5769a8f45b8d0615c06c51da, type: 2}
   soundLibrary: {fileID: 11400000, guid: ef471f3e5b2d512449cb820b42183f3c, type: 2}
+  coinLibrary: {fileID: 11400000, guid: 62e503d27726e3f4bb501102f2fb8f57, type: 2}
 --- !u!1 &5933664964533546792
 GameObject:
   m_ObjectHideFlags: 0
