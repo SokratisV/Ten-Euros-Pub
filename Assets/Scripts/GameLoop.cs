@@ -9,10 +9,10 @@ namespace Pub
     public class GameLoop : MonoBehaviour
     {
         public event Action<Round, float[]> OnRoundChange;
-        public event Action OnGameEnd;
         [SerializeField] private GameData gameData;
         [SerializeField] private SceneReference menu;
         [SerializeField] private CoinClickEvent coinEvent;
+        [SerializeField] private MatchEndEvent matchEndEvent;
 
         public int RoundNumber => _rounds.Count;
         public float TimeRemaining => _currentRound.TimeLeft;
@@ -38,7 +38,7 @@ namespace Pub
             if (TimeRemaining <= 0)
             {
                 Debug.Log("Game Over!");
-                OnGameEnd?.Invoke();
+                matchEndEvent.Raise(RoundNumber);
                 menu.LoadScene();
                 return;
             }

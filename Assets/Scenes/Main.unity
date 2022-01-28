@@ -160,7 +160,7 @@ MonoBehaviour:
   cameraPrefab: {fileID: 4417218635708077550, guid: d284ea072b92abe429b17eba31263f3c, type: 3}
   background: {fileID: 2576335357290104468, guid: 707e8e5263b06f846a137327a900101b, type: 3}
   globalAudioSource: {fileID: 1690864294739368872, guid: 3e139fc4a3c1f604d99a3b8a49fbc823, type: 3}
-  audioEngine: {fileID: 11400000, guid: 79d3032a5769a8f45b8d0615c06c51da, type: 2}
+  scoreTracker: {fileID: 11400000, guid: edad910549cf0974fb48c0042110b071, type: 2}
 --- !u!4 &1423943723
 Transform:
   m_ObjectHideFlags: 0

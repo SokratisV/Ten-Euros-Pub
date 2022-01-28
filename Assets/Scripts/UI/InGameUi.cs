@@ -15,21 +15,21 @@ namespace Pub
         [SerializeField] private GameLoop gameLoop;
         [SerializeField] private CoinClickEvent clickEvent;
         [SerializeField] private AudioEngine audioEngine;
-        [SerializeField] private SoundLibrary soundLibrary;
         [SerializeField] private CoinLibrary coinLibrary;
+        [SerializeField] private MatchEndEvent matchEndEvent;
 
         private void Awake()
         {
             backButton.onClick.AddListener(() =>
             {
-                audioEngine.Play(soundLibrary.Back);
+                audioEngine.Play(audioEngine.Library.Back);
                 menu.LoadScene();
             });
             gameLoop.OnRoundChange += OnRoundChange;
-            gameLoop.OnGameEnd += OnGameEnd;
+            matchEndEvent.OnMatchEnd += OnMatchEnd;
         }
 
-        private void OnGameEnd() => audioEngine.Play(soundLibrary.MatchEnd);
+        private void OnMatchEnd(int _) => audioEngine.Play(audioEngine.Library.MatchEnd);
 
         private void OnRoundChange(Round round, float[] coins)
         {
@@ -38,7 +38,7 @@ namespace Pub
                 Destroy(child.gameObject);
             }
 
-            audioEngine.Play(soundLibrary.StageComplete);
+            audioEngine.Play(audioEngine.Library.StageComplete);
             roundCounter.SetText(gameLoop.RoundNumber.ToString());
             foreach (var coin in coins)
             {
@@ -47,7 +47,7 @@ namespace Pub
                 {
                     button.onClick.AddListener(() =>
                     {
-                        audioEngine.Play(soundLibrary.CoinCollect);
+                        audioEngine.Play(audioEngine.Library.CoinCollect);
                         clickEvent.Raise();
                         ReplaceWithEmptyCoin(coinUi, coinLibrary, coinParent);
                     });
@@ -66,7 +66,7 @@ namespace Pub
         private void OnDestroy()
         {
             gameLoop.OnRoundChange -= OnRoundChange;
-            gameLoop.OnGameEnd -= OnGameEnd;
+            matchEndEvent.OnMatchEnd -= OnMatchEnd;
         }
 
         private void Update()

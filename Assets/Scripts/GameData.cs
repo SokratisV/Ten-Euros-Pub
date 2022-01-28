@@ -7,5 +7,6 @@ namespace Pub
     {
         [Min(1)] public float InitialRoundTimer = 30;
         [Min(5)] public int MaxNumberOfCoins = 20;
+        [Min(0)] public int LeaderboardEntriesShown = 5;
     }
 }

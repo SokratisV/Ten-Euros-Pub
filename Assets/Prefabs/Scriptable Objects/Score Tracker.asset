@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1809b149ab5c45a69a2b5a8103adac38, type: 3}
-  m_Name: Game Data
+  m_Script: {fileID: 11500000, guid: 99c9bc8177e449b283ecebaad13836f6, type: 3}
+  m_Name: Score Tracker
   m_EditorClassIdentifier: 
-  InitialRoundTimer: 5
-  MaxNumberOfCoins: 15
-  LeaderboardEntriesShown: 5
+  matchEndEvent: {fileID: 11400000, guid: b3a3a68355cad584c9e90a9f1788a2b2, type: 2}

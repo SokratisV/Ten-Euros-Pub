@@ -645,6 +645,7 @@ MonoBehaviour:
     sceneIndex: 2
     sceneEnabled: 1
   coinEvent: {fileID: 11400000, guid: cea2eae8615db054e910bb7e50ba7256, type: 2}
+  matchEndEvent: {fileID: 11400000, guid: b3a3a68355cad584c9e90a9f1788a2b2, type: 2}
 --- !u!114 &5933664964145893656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -669,8 +670,8 @@ MonoBehaviour:
   gameLoop: {fileID: 5933664964145893657}
   clickEvent: {fileID: 11400000, guid: cea2eae8615db054e910bb7e50ba7256, type: 2}
   audioEngine: {fileID: 11400000, guid: 79d3032a5769a8f45b8d0615c06c51da, type: 2}
-  soundLibrary: {fileID: 11400000, guid: ef471f3e5b2d512449cb820b42183f3c, type: 2}
   coinLibrary: {fileID: 11400000, guid: 62e503d27726e3f4bb501102f2fb8f57, type: 2}
+  matchEndEvent: {fileID: 11400000, guid: b3a3a68355cad584c9e90a9f1788a2b2, type: 2}
 --- !u!1 &5933664964533546792
 GameObject:
   m_ObjectHideFlags: 0
