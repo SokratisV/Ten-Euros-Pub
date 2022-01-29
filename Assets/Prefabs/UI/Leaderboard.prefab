@@ -35,7 +35,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.000015259}
-  m_SizeDelta: {x: 200, y: 108}
+  m_SizeDelta: {x: 200, y: 80.3}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7875997721962631000
 CanvasRenderer:
@@ -228,6 +228,15 @@ MonoBehaviour:
   leaderboardListParent: {fileID: 1993886705281843112}
   gameData: {fileID: 11400000, guid: 507b78f0d262ea948a9c9cee56ea3344, type: 2}
   scoreTracker: {fileID: 11400000, guid: edad910549cf0974fb48c0042110b071, type: 2}
+  coinSprites:
+  - {fileID: 21300000, guid: 848e9e752f9beff4aa9fb5a4092537ee, type: 3}
+  - {fileID: 21300000, guid: 9409ae0d442be0d42a5ac6f69aef33a0, type: 3}
+  - {fileID: 21300000, guid: 7f1aa1cef6bdc5844b46faffa7914041, type: 3}
+  - {fileID: 21300000, guid: 2696cc38025e57d44bb63d0cb8ac7bb7, type: 3}
+  - {fileID: 21300000, guid: 7ac40346aa1169b4594daa0eb29deab3, type: 3}
+  - {fileID: 21300000, guid: 9e8c170ffd2b13147af58616797b12dd, type: 3}
+  - {fileID: 21300000, guid: f189554767958114aa8964b6fb9ac126, type: 3}
+  - {fileID: 21300000, guid: b995d4cfb46fe7a4d926821219733ae2, type: 3}
 --- !u!1 &1993886705281843115
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +434,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 108}
+  m_SizeDelta: {x: 200, y: 80.3}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &3509969969250492662
 CanvasRenderer:
@@ -489,7 +498,7 @@ MonoBehaviour:
   m_fontSizeMin: 15
   m_fontSizeMax: 35
   m_fontStyle: 0
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
