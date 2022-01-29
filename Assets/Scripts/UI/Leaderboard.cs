@@ -6,13 +6,11 @@ namespace Pub
     public class Leaderboard : MonoBehaviour
     {
         [SerializeField] private LeaderboardEntry leaderBoardEntryPrefab;
-        [SerializeField] private GameObject prefab;
         [SerializeField] private Transform leaderboardListParent;
         [SerializeField] private GameData gameData;
         [SerializeField] private ScoreTracker scoreTracker;
 
-        private void GenerateEntriesUi(IEnumerable<PlayerScore> entries, LeaderboardEntry _,
-            Transform parent)
+        private void GenerateEntriesUi(IEnumerable<PlayerScore> entries, LeaderboardEntry prefab, Transform parent)
         {
             foreach (var entry in entries)
             {
@@ -25,6 +23,14 @@ namespace Pub
         {
             GenerateEntriesUi(scoreTracker.GetScores(gameData.LeaderboardEntriesShown), leaderBoardEntryPrefab,
                 leaderboardListParent);
+        }
+
+        private void OnDisable()
+        {
+            foreach (Transform child in leaderboardListParent)
+            {
+                Destroy(child.gameObject);
+            }
         }
     }
 }

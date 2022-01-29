@@ -41,8 +41,7 @@ namespace Pub
 
         private void Update()
         {
-            if (_currentRound == null) return;
-            if (TimeRemaining <= 0)
+            if (TimeRemaining < 0)
             {
                 Debug.Log("Game Over!");
                 matchEndEvent.Raise(RoundNumber);
@@ -50,7 +49,7 @@ namespace Pub
                 return;
             }
 
-            _currentRound.Update();
+            _currentRound?.Update();
         }
 
         private void CheckForGameEnd(float timeLeft)
@@ -61,27 +60,37 @@ namespace Pub
                 menu.LoadScene();
         }
 
-        private Round GenerateNewRound(IList<Round> rounds, float initialTimer)
+        private Round GenerateNewRound(IList<Round> rounds, float roundTimer)
         {
-            if (rounds.Count > 0) rounds[rounds.Count - 1].OnRoundEnded -= CheckForGameEnd;
+            ExecuteIfNotFirstRound(rounds);
+            var coins = TryGeneratingCoins(coinGeneration, gameData.NumberOfAlgorithmAttempts);
+            if (coins == null) return null;
+
+            gameData.Rng.Shuffle(coins);
+            var round = new Round(roundTimer, coins.Length);
+            rounds.Add(round);
+            round.OnRoundEnded += CheckForGameEnd;
+            OnRoundChange?.Invoke(round, coins);
+            return round;
+        }
+
+        private float[] TryGeneratingCoins(CoinGenerationBase generation, int numberOfAttempts)
+        {
             float[] coins = null;
             var counter = 0;
             while (coins == null)
             {
                 counter++;
-                if (counter > 10000) break;
-                coins = coinGeneration.GenerateCoins(gameData.Rng);
+                if (counter > numberOfAttempts) break;
+                coins = generation.GenerateCoins(gameData.Rng);
             }
 
-            if (coins == null) return null;
+            return coins;
+        }
 
-            Debug.Log($"took {counter} times");
-            gameData.Rng.Shuffle(coins);
-            var round = new Round(initialTimer, coins.Length);
-            rounds.Add(round);
-            round.OnRoundEnded += CheckForGameEnd;
-            OnRoundChange?.Invoke(round, coins);
-            return round;
+        private void ExecuteIfNotFirstRound(IList<Round> rounds)
+        {
+            if (rounds.Count > 0) rounds[rounds.Count - 1].OnRoundEnded -= CheckForGameEnd;
         }
 
         private float CalculateRoundTimer() => gameData.InitialRoundTimer - _rounds.Count;
