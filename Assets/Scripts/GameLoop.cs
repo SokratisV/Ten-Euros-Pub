@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using RoboRyanTron.SceneReference;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Pub
 {
@@ -13,28 +12,36 @@ namespace Pub
         [SerializeField] private SceneReference menu;
         [SerializeField] private CoinClickEvent coinEvent;
         [SerializeField] private MatchEndEvent matchEndEvent;
+        [SerializeField] private CoinGenerationBase coinGeneration;
 
         public int RoundNumber => _rounds.Count;
-        public float TimeRemaining => _currentRound.TimeLeft;
+        public float TimeRemaining => _currentRound?.TimeLeft ?? 0;
 
         private List<Round> _rounds = new List<Round>();
         private Round _currentRound;
-        private readonly float[] _coinValues = { .01f, .02f, .05f, .10f, .20f, .50f, 1f, 2f };
 
         private void Start()
         {
             _currentRound = GenerateNewRound(_rounds, CalculateRoundTimer());
+            if (_currentRound == null)
+            {
+                menu.LoadScene();
+                return;
+            }
+
             coinEvent.OnCoinClicked += CoinClicked;
         }
 
         private void OnDestroy()
         {
+            if (_currentRound == null) return;
             coinEvent.OnCoinClicked -= CoinClicked;
             _currentRound.OnRoundEnded -= CheckForGameEnd;
         }
 
         private void Update()
         {
+            if (_currentRound == null) return;
             if (TimeRemaining <= 0)
             {
                 Debug.Log("Game Over!");
@@ -43,7 +50,7 @@ namespace Pub
                 return;
             }
 
-            _currentRound?.Update();
+            _currentRound.Update();
         }
 
         private void CheckForGameEnd(float timeLeft)
@@ -57,7 +64,19 @@ namespace Pub
         private Round GenerateNewRound(IList<Round> rounds, float initialTimer)
         {
             if (rounds.Count > 0) rounds[rounds.Count - 1].OnRoundEnded -= CheckForGameEnd;
-            var coins = GenerateCoins(_coinValues, gameData.MaxNumberOfCoins);
+            float[] coins = null;
+            var counter = 0;
+            while (coins == null)
+            {
+                counter++;
+                if (counter > 10000) break;
+                coins = coinGeneration.GenerateCoins(gameData.Rng);
+            }
+
+            if (coins == null) return null;
+
+            Debug.Log($"took {counter} times");
+            gameData.Rng.Shuffle(coins);
             var round = new Round(initialTimer, coins.Length);
             rounds.Add(round);
             round.OnRoundEnded += CheckForGameEnd;
@@ -67,17 +86,5 @@ namespace Pub
 
         private float CalculateRoundTimer() => gameData.InitialRoundTimer - _rounds.Count;
         private void CoinClicked() => _currentRound?.CoinCollected();
-
-        private static float[] GenerateCoins(IReadOnlyList<float> coinValues, int maxNumber)
-        {
-            var randomNumber = Random.Range(1, maxNumber);
-            var coins = new float[randomNumber];
-            for (var i = 0; i < coins.Length; i++)
-            {
-                coins[i] = coinValues[Random.Range(0, coinValues.Count)];
-            }
-
-            return coins;
-        }
     }
 }

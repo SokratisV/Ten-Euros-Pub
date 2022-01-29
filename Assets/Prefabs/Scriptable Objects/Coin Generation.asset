@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1809b149ab5c45a69a2b5a8103adac38, type: 3}
-  m_Name: Game Data
+  m_Script: {fileID: 11500000, guid: 09469a5608aa467c954272d5163d1176, type: 3}
+  m_Name: Coin Generation
   m_EditorClassIdentifier: 
-  InitialRoundTimer: 100
-  MaxNumberOfCoins: 20
-  TotalCoinValue: 10
-  LeaderboardEntriesShown: 5
+  gameData: {fileID: 11400000, guid: 507b78f0d262ea948a9c9cee56ea3344, type: 2}
+  upperLimitPerCoinValue: 0a0000000a0000000a0000000a0000000a000000070000000400000003000000

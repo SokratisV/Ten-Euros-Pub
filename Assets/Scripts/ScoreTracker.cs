@@ -35,6 +35,12 @@ namespace Pub
         public IEnumerable<PlayerScore> GetScores(int howManyTopScores = 0) =>
             howManyTopScores == 0 ? _scores : _scores.Take(howManyTopScores);
 
+        private static void DeleteSave()
+        {
+            if (System.IO.File.Exists($"{Application.persistentDataPath}/scores.json") == false) return;
+            System.IO.File.Delete($"{Application.persistentDataPath}/scores.json");
+        }
+
         private static void SaveScore(List<PlayerScore> scores)
         {
             var wrapper = new PlayerScoreListWrapper { Scores = scores };

@@ -1,4 +1,5 @@
-﻿using RoboRyanTron.SceneReference;
+﻿using System.Collections.Generic;
+using RoboRyanTron.SceneReference;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -17,6 +18,7 @@ namespace Pub
         [SerializeField] private AudioEngine audioEngine;
         [SerializeField] private CoinLibrary coinLibrary;
         [SerializeField] private MatchEndEvent matchEndEvent;
+        [SerializeField] private GameData gameData;
 
         private void Awake()
         {
@@ -33,13 +35,16 @@ namespace Pub
 
         private void OnRoundChange(Round round, float[] coins)
         {
-            foreach (Transform child in coinParent)
-            {
-                Destroy(child.gameObject);
-            }
-
             audioEngine.Play(audioEngine.Library.StageComplete);
             roundCounter.SetText(gameLoop.RoundNumber.ToString());
+            RemovePreviousCoins();
+            var newCoinsArray = CreateArrayAndFillWithEmptyCoins(coins);
+            gameData.Rng.Shuffle(newCoinsArray);
+            CreateNewCoinInstances(newCoinsArray);
+        }
+
+        private void CreateNewCoinInstances(IEnumerable<float> coins)
+        {
             foreach (var coin in coins)
             {
                 var coinUi = Instantiate(coinLibrary.GetCoinPrefabWithValue(coin), coinParent);
@@ -53,6 +58,26 @@ namespace Pub
                     });
                 }
             }
+        }
+
+        private void RemovePreviousCoins()
+        {
+            foreach (Transform child in coinParent)
+            {
+                Destroy(child.gameObject);
+            }
+        }
+
+        private float[] CreateArrayAndFillWithEmptyCoins(IReadOnlyList<float> coins)
+        {
+            var newCoinsArray = new float[gameData.MaxNumberOfCoins];
+            for (var i = 0; i < newCoinsArray.Length; i++)
+            {
+                if (i < coins.Count) newCoinsArray[i] = coins[i];
+                else newCoinsArray[i] = 0;
+            }
+
+            return newCoinsArray;
         }
 
         private static void ReplaceWithEmptyCoin(GameObject coinUi, CoinLibrary library, Transform parent)
