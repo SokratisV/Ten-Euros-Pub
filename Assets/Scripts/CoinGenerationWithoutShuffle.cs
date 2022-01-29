@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Pub
 {
-    public class CoinGeneration : CoinGenerationBase
+    public class CoinGenerationWithoutShuffle : CoinGenerationBase
     {
         [SerializeField] private List<int> upperLimitPerCoinValue;
 
@@ -17,7 +16,6 @@ namespace Pub
             var amountOfCoins = 0;
             var totalValue = 0f;
             InitializeDict();
-            rng.Shuffle(CoinValues);
             foreach (var coinValue in CoinValues.Reverse())
             {
                 var upperBound = _limitPerCoin[coinValue];
