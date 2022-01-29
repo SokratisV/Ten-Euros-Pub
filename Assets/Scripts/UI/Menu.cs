@@ -29,6 +29,9 @@ namespace Pub
                 audioEngine.Play(audioEngine.Library.Back);
             });
             quit.onClick.AddListener(Application.Quit);
+#if UNITY_WEBGL
+            quit.interactable = false;
+#endif
         }
 
         private void ToggleLeaderBoard(bool toggle)

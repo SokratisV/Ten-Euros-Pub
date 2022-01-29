@@ -10,5 +10,6 @@ namespace Pub
         public AudioClip CoinCollect;
         public AudioClip MatchEnd;
         public AudioClip StageComplete;
+        public AudioClip ClockTick;
     }
 }

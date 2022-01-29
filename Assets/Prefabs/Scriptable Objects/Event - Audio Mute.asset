@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a858a47a56649cdb45b10d668ab63c9, type: 3}
-  m_Name: Audio Engine
+  m_Script: {fileID: 11500000, guid: be704d2f5d9342aa98f5ee24d38cc852, type: 3}
+  m_Name: Event - Audio Mute
   m_EditorClassIdentifier: 
-  soundLibrary: {fileID: 11400000, guid: ef471f3e5b2d512449cb820b42183f3c, type: 2}
-  audioEvent: {fileID: 11400000, guid: d11873a11ae4c024d82586e45b7b9882, type: 2}

@@ -10,6 +10,7 @@ namespace Pub
         [Min(5)] public int TotalCoinValue = 10;
         [Min(0)] public int LeaderboardEntriesShown = 5;
         [Min(1)] public int NumberOfAlgorithmAttempts = 10000;
+        [Min(1)] public float TimeRunningOutAudioCue = 5;
 
         public readonly System.Random Rng = new System.Random();
     }

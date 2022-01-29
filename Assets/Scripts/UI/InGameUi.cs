@@ -21,6 +21,8 @@ namespace Pub
         [SerializeField] private GameData gameData;
         [SerializeField] private List<Sprite> beerSprites;
 
+        private bool _hasClockAudioBeenTrigger;
+
         private void Awake()
         {
             backButton.onClick.AddListener(() =>
@@ -36,6 +38,7 @@ namespace Pub
 
         private void OnRoundChange(Round round, float[] coins)
         {
+            _hasClockAudioBeenTrigger = false;
             audioEngine.Play(audioEngine.Library.StageComplete);
             roundCounter.SetText(gameLoop.RoundNumber.ToString());
             RemovePreviousCoins();
@@ -74,7 +77,7 @@ namespace Pub
                 {
                     button.onClick.AddListener(() =>
                     {
-                        audioEngine.Play(audioEngine.Library.CoinCollect);
+                        audioEngine.Play(audioEngine.Library.CoinCollect, pitch: Random.Range(1f, 1.1f));
                         clickEvent.Raise();
                         ReplaceWithEmptyCoin(coinUi, coinLibrary, coinParent);
                     });
@@ -119,6 +122,11 @@ namespace Pub
         private void Update()
         {
             timeLeft.SetText(gameLoop.TimeRemaining.ToString("F0"));
+            if (_hasClockAudioBeenTrigger == false && gameLoop.TimeRemaining <= gameData.TimeRunningOutAudioCue)
+            {
+                _hasClockAudioBeenTrigger = true;
+                audioEngine.Play(audioEngine.Library.ClockTick);
+            }
         }
     }
 }

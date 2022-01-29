@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -159,8 +159,9 @@ MonoBehaviour:
     sceneEnabled: 1
   cameraPrefab: {fileID: 4417218635708077550, guid: d284ea072b92abe429b17eba31263f3c, type: 3}
   background: {fileID: 2576335357290104468, guid: 707e8e5263b06f846a137327a900101b, type: 3}
-  globalAudioSource: {fileID: 1690864294739368872, guid: 3e139fc4a3c1f604d99a3b8a49fbc823, type: 3}
+  globalAudioSourcePrefab: {fileID: 1690864294739368872, guid: 3e139fc4a3c1f604d99a3b8a49fbc823, type: 3}
   scoreTracker: {fileID: 11400000, guid: edad910549cf0974fb48c0042110b071, type: 2}
+  muteAudio: {fileID: 11400000, guid: d11873a11ae4c024d82586e45b7b9882, type: 2}
 --- !u!4 &1423943723
 Transform:
   m_ObjectHideFlags: 0
