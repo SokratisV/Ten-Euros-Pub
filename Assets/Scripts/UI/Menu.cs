@@ -6,7 +6,7 @@ namespace Pub
 {
     public class Menu : MonoBehaviour
     {
-        [SerializeField] private Button play, leaderBoards, close;
+        [SerializeField] private Button play, leaderBoards, close, quit;
         [SerializeField] private GameObject menuButtonsPanel, leaderboardPanel;
         [SerializeField] private AudioEngine audioEngine;
         [SerializeField] private SceneReference inGame;
@@ -28,6 +28,7 @@ namespace Pub
                 ToggleLeaderBoard(false);
                 audioEngine.Play(audioEngine.Library.Back);
             });
+            quit.onClick.AddListener(Application.Quit);
         }
 
         private void ToggleLeaderBoard(bool toggle)
