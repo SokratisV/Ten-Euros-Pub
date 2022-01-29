@@ -150,15 +150,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v2.4.0
 
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v2.1.0
         with:
           name: build-WebGL
           path: build
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@v4.2.2
         with:
           branch: gh-pages
           folder: build/WebGL
