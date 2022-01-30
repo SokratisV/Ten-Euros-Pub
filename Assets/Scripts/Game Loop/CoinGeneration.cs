@@ -11,6 +11,7 @@ namespace Pub
 
         private Dictionary<float, int> _limitPerCoin = new Dictionary<float, int>();
 
+        //Definitely not the best algorithm, but I can't think of anything else
         public override float[] GenerateCoins(System.Random rng)
         {
             var coins = new List<float>(20);

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1809b149ab5c45a69a2b5a8103adac38, type: 3}
   m_Name: Game Data
   m_EditorClassIdentifier: 
-  InitialRoundTimer: 30
+  InitialRoundTimer: 30.1
   MaxNumberOfCoins: 20
   TotalCoinValue: 10
   LeaderboardEntriesShown: 5

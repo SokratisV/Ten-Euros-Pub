@@ -77,7 +77,8 @@ namespace Pub
                 {
                     button.onClick.AddListener(() =>
                     {
-                        audioEngine.Play(audioEngine.Library.CoinCollect, pitch: Random.Range(1f, 1.1f));
+                        var pitch = Random.Range(1, 11) * .01f + 2; //random value from 2 to 2.1 with a .1 steps
+                        audioEngine.Play(audioEngine.Library.CoinCollect, pitch: pitch);
                         clickEvent.Raise();
                         ReplaceWithEmptyCoin(coinUi, coinLibrary, coinParent);
                     });
